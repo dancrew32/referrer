@@ -7,5 +7,16 @@
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 </a>
+<script>
+var req = new XMLHttpRequest();
+req.open('GET', window.location.pathname, true);
+req.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+req.onreadystatechange = function(e) {
+  if (req.readyState === 4) {
+    console.log(req.status, req.responseText);
+  }
+};
+req.send('');
+</script>
 </body>
 </html>

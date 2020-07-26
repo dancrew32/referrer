@@ -6,6 +6,8 @@ import (
 )
 
 func Index(writer http.ResponseWriter, request *http.Request) {
+	log.Println(request.UserAgent())
+	writer.Header().Set("Referrer-Policy", "strict-origin-when-cross-origin")
 	http.ServeFile(writer, request, "./index.html")
 }
 
